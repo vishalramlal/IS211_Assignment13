@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <div align="center">
+      <style>
+       table, th, td {
+            border: 1px solid black;
+         }
+      </style>
+   </head>
+
+   <body>
+   <font size = "3">
+      <h1>Quiz results for selected Student</h1>
+    </font>
+      <table>
+         <tr>
+            <th>Quiz ID</th>
+            <th>First Name</th>
+	        <th>Last Name</th>
+	        <th>Score</th>
+	        
+         </tr>
+         {% for s in s_name %}
+         {% for v in s_views %}
+         <tr>
+            <td>{{v.quiz_id}}</td>
+            <td>{{s.firstname}}</td>
+	    	<td>{{s.lastname}}</td>
+	    	<td>{{v.score}}</td>
+         </tr>
+         {% endfor %}
+         {% endfor %}
+      </table>
+      {% for message in get_flashed_messages() %}
+	<u1 class=flashes>{{ message }}</u1>
+          {% endfor %}
+          <br>
+          <br>
+          <br>
+          <br>
+          <a href="/dashboard">Go to Dashboard</a>
+      </div>
+   </body>
+</html>
